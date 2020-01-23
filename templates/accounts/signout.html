@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<form class='form-signin' method='POST' action='{% url 'signin' %}'>
+{% csrf_token %}
+
+<div class='container'>
+    <div class='text-center mb-4'>
+        <h1 class='h3 mb-3 font-weight-normal pt-4'>Sign Out</h1>
+        <p>Come back anytime! :)</p>
+        {% if error %}
+            {{ error }}
+        {% endif %}
+
+    </div>
+</div>
+
+<div class='form-label-group mb-3'>
+    <input type='text' name='inUser' class='form-control' placeholder='Username' required autofocus>
+</div>
+
+<div class='form-label-group mb-3'>
+    <input type='password' name='inPass' class='form-control' placeholder='Password' required>
+</div>
+
+<div class='checkbox mb-3'>
+    <label>
+        <input type='checkbox' value='remember-me'> Remember me
+    </label>
+    <button class='btn btn-lg btn-primary btn-block mb-3' type='submit'>Sign in</button>
+</div>
+
+{% endblock content%}
