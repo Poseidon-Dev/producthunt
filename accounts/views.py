@@ -17,18 +17,18 @@ def signup(request):
     else:
         return render(request, 'accounts/signup.html')
 
-def signin(request):
+def login(request):
     if request.method == 'POST':
         user = auth.authenticate(username=request.POST['inUser'], password=request.POST['inPass'])
         if user is not None:
             auth.login(request, user)
             return redirect('home')
         else:
-            return render(request, 'accounts/signin.html', {'error':'Username or password invalid'})
+            return render(request, 'accounts/login.html', {'error':'Username or password invalid'})
     else:
-        return render(request, 'accounts/signin.html')
+        return render(request, 'accounts/login.html')
 
-def signout(request):
+def logout(request):
     if request.method == 'POST':
         auth.logout(request)
         return redirect('home')

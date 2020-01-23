@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<form method='POST' action='{% url 'create' %}' enctype='multipart/form-data'>
+{% csrf_token %}
+
+<div class='container'>
+    <div class='text-center mb-4'>
+        <h1 class='h3 mb-3 font-weight-normal pt-4'>Create</h1>
+        {% if error %}
+            {{ error }}
+        {% endif %}
+
+    </div>
+</div>
+
+<div class='form-label-group mb-3'>
+    <input type='text' name='title' class='form-control' placeholder='title' required autofocus>
+</div>
+
+<div class='form-label-group mb-3'>
+    <input type='textbox' name='body' class='form-control' placeholder='body' required >
+</div>
+
+<div class='form-label-group mb-3'>
+    <input type='url' name='url' class='form-control' placeholder='url' required >
+</div>
+
+<div class='form-label-group mb-3'>
+    <input type='file' name='mainimage' class='form-control' required >
+</div>
+
+<div class='form-label-group mb-3'>
+    <input type='file' name='iconimage' class='form-control' required >
+</div>
+
+<button class='btn btn-lg btn-primary btn-block mb-3' type='submit'>Submit</button>
+
+
+
+
+
+
+
+{% endblock content%}

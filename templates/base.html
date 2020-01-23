@@ -58,14 +58,14 @@
             <div class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                   <a class="nav-item nav-link" href="">Hello {{ user.username }}!</a>
-                  <a class="nav-item nav-link" href="javascript:{document.getElementById('signout').submit()}">Sign out</a>
-                  <form id='signout' method='POST' action='{% url 'signout' %}'>
+                  <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}">Log out</a>
+                  <form id='logout' method='POST' action='{% url 'logout' %}'>
                     {% csrf_token %}
                     <input type='hidden' />
                   </form>
                 {% else %}
-                  <a class="nav-item nav-link" href="{% url 'signin' %}">Sign Up</a>
-                  <a class="nav-item nav-link" href="{% url 'signin'%}">Login</a>
+                  <a class="nav-item nav-link" href="{% url 'signup' %}">Sign Up</a>
+                  <a class="nav-item nav-link" href="{% url 'login'%}">Login</a>
                 {% endif %}
                 
             </div>
